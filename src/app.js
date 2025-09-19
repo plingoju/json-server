@@ -1,7 +1,6 @@
-// ----- Config -----
-const FETCH_URL = 'http://localhost:4232/courseList'; // your json-server endpoint
 
-// ----- Model -----
+const FETCH_URL = 'http://localhost:4232/courseList'; 
+
 const Model = {
   courses: [],
   pendingSelectedIds: new Set(),
@@ -12,7 +11,6 @@ const Model = {
       const res = await fetch(FETCH_URL);
       if (!res.ok) throw new Error('Fetch failed');
       const data = await res.json();
-      // Expecting an array of: { courseId, courseName, required (bool), credit (number) }
       this.courses = Array.isArray(data) ? data : (data.courses || []);
     } catch (e) {
       console.error('Failed to fetch courses:', e);
@@ -50,7 +48,6 @@ const Model = {
   }
 };
 
-// ----- View -----
 const View = {
   dom: {
     availableList: document.getElementById('availableList'),
@@ -60,7 +57,6 @@ const View = {
   },
 
   render() {
-    // Available
     const availableTitle = this.dom.availableList.querySelector('.bucket-title');
     this.dom.availableList.innerHTML = '';
     this.dom.availableList.appendChild(availableTitle);
@@ -73,7 +69,6 @@ const View = {
         this.dom.availableList.appendChild(el);
       });
 
-    // Selected
     const selectedTitle = this.dom.selectedList.querySelector('.bucket-title');
     this.dom.selectedList.innerHTML = '';
     this.dom.selectedList.appendChild(selectedTitle);
@@ -94,7 +89,6 @@ const View = {
       });
     }
 
-    // Totals + button state
     this.dom.totalCredits.textContent = Model.getPendingTotal();
     this.dom.selectBtn.disabled =
       Model.confirmedSelectedIds.size > 0 || Model.pendingSelectedIds.size === 0;
@@ -124,7 +118,6 @@ const View = {
   }
 };
 
-// ----- Controller -----
 const Controller = {
   async init() {
     await Model.fetchCourses();
@@ -161,3 +154,4 @@ const Controller = {
 };
 
 Controller.init();
+
