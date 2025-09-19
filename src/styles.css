@@ -1,12 +1,10 @@
-/* Base */
 body { font-family: Arial, Helvetica, sans-serif; margin: 24px; }
 * { box-sizing: border-box; }
 
-/* Page layout */
 .page {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center everything horizontally */
+  align-items: center; 
   gap: 24px;
 }
 h1 { text-align: center; }
@@ -15,13 +13,11 @@ h1 { text-align: center; }
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  justify-content: center; /* center buckets horizontally */
+  justify-content: center; 
 }
 
-/* Buckets */
 .bucket { display: flex; flex-direction: column; align-items: center; }
 
-/* List: 200x300 with scroll when overflow */
 .list {
   width: 200px;
   height: 300px;
@@ -33,7 +29,6 @@ h1 { text-align: center; }
   gap: 6px;
 }
 
-/* Title inside list */
 .bucket-title {
   text-align: center;
   font-weight: bold;
@@ -42,11 +37,10 @@ h1 { text-align: center; }
   margin-bottom: 6px;
 }
 
-/* Course card */
 .course-item {
   border: 1px solid #999;
   padding: 8px;
-  text-align: center; /* center text */
+  text-align: center; 
   cursor: pointer;
   user-select: none;
   display: flex;
@@ -54,18 +48,14 @@ h1 { text-align: center; }
   gap: 4px;
 }
 
-/* Alternate background for even children (title is not .course-item so it won't count) */
 .list .course-item:nth-child(even) {
   background: rgb(221, 239, 221);
 }
 
-/* Pending selected (before confirm) */
 .course-item.selected { background: deepskyblue !important; color: #fff; }
 
-/* Meta text */
 .meta { font-size: 12px; opacity: 0.9; }
 
-/* Bottom controls */
 .controls {
   display: flex;
   justify-content: center;
@@ -75,7 +65,7 @@ h1 { text-align: center; }
 #totalCreditsContainer { font-weight: bold; text-align: center; }
 #selectBtn { padding: 8px 12px; font-size: 14px; }
 
-/* Responsive */
 @media (max-width:600px) {
   .app { flex-direction: column; gap: 12px; }
 }
+
