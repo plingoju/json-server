@@ -38,7 +38,8 @@ h1 { text-align: center; }
 }
 
 .course-item {
-  border: 1px solid #999;
+  border: 2px solid #333;
+  background:# fdfdfd
   padding: 8px;
   text-align: center; 
   cursor: pointer;
@@ -68,4 +69,5 @@ h1 { text-align: center; }
 @media (max-width:600px) {
   .app { flex-direction: column; gap: 12px; }
 }
+
 
